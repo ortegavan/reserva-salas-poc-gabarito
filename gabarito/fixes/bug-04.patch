@@ -1,0 +1,13 @@
+diff --git a/src/app/reserva/reserva.component.html b/src/app/reserva/reserva.component.html
+index f7eeab2..dd8b0d1 100644
+--- a/src/app/reserva/reserva.component.html
++++ b/src/app/reserva/reserva.component.html
+@@ -55,7 +55,7 @@
+     }
+   </div>
+ 
+-  <button type="submit" [disabled]="form.invalid && !enviando()">Reservar</button>
++  <button type="submit" [disabled]="form.invalid || enviando()">Reservar</button>
+ 
+   @if (reservaConfirmada()) {
+     <p class="sucesso">Reserva enviada.</p>

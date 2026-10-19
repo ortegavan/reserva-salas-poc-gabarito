@@ -1,0 +1,12 @@
+diff --git a/src/app/reserva/regras-reserva.service.ts b/src/app/reserva/regras-reserva.service.ts
+index 1391e7b..0d25f79 100644
+--- a/src/app/reserva/regras-reserva.service.ts
++++ b/src/app/reserva/regras-reserva.service.ts
+@@ -25,6 +25,6 @@ export class RegrasReservaService {
+     if (Number.isNaN(hora) || Number.isNaN(minuto)) {
+       return false;
+     }
+-    return hora >= 7 && hora <= 20;
++    return hora >= 7 && hora < 20;
+   }
+ }

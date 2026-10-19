@@ -1,0 +1,13 @@
+diff --git a/src/app/reserva/regras-reserva.service.ts b/src/app/reserva/regras-reserva.service.ts
+index 1391e7b..84ff390 100644
+--- a/src/app/reserva/regras-reserva.service.ts
++++ b/src/app/reserva/regras-reserva.service.ts
+@@ -17,7 +17,7 @@ export class RegrasReservaService {
+   }
+ 
+   exigeAprovacaoGestor(participantes: number): boolean {
+-    return participantes > 10;
++    return participantes >= 10;
+   }
+ 
+   horarioInicioPermitido(horario: string): boolean {

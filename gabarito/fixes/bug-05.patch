@@ -1,0 +1,12 @@
+diff --git a/src/app/reserva/reserva.component.ts b/src/app/reserva/reserva.component.ts
+index 6b63170..cf771d7 100644
+--- a/src/app/reserva/reserva.component.ts
++++ b/src/app/reserva/reserva.component.ts
+@@ -74,6 +74,7 @@ export class ReservaComponent {
+     this.form.controls.codigoSala.valueChanges
+       .pipe(
+         tap(() => {
++          this.sala.set(null);
+           this.salaNaoEncontrada.set(false);
+           this.consultandoSala.set(true);
+         }),

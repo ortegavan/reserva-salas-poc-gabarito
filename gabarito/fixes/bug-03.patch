@@ -1,0 +1,12 @@
+diff --git a/src/app/reserva/regras-reserva.service.ts b/src/app/reserva/regras-reserva.service.ts
+index 1391e7b..5ef5c60 100644
+--- a/src/app/reserva/regras-reserva.service.ts
++++ b/src/app/reserva/regras-reserva.service.ts
+@@ -1,6 +1,6 @@
+ import { Injectable } from '@angular/core';
+ 
+-const FORMATO_CODIGO_SALA = /^[A-Z]{2}-\d{3}/;
++const FORMATO_CODIGO_SALA = /^[A-Z]{2}-\d{3}$/;
+ 
+ @Injectable({ providedIn: 'root' })
+ export class RegrasReservaService {
