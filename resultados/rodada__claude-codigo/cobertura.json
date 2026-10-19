@@ -1,0 +1,65 @@
+{
+  "branch": "rodada/claude-codigo",
+  "commit": "ab2d08c3320b9feb7f99f6adfb75efc2ec981ea2",
+  "geradoEm": "2026-10-19T18:43:04.876Z",
+  "jest": {
+    "codigoSaida": 1,
+    "testes": 96,
+    "passaram": 85,
+    "falharam": 11,
+    "suitesComErro": 0
+  },
+  "arquivosAlvo": {
+    "src/app/reserva/regras-reserva.service.ts": {
+      "encontradoNoRelatorio": true,
+      "linhas": {
+        "cobertas": 11,
+        "total": 11,
+        "pct": 100
+      },
+      "branches": {
+        "cobertas": 8,
+        "total": 8,
+        "pct": 100
+      }
+    },
+    "src/app/reserva/reserva.component.ts": {
+      "encontradoNoRelatorio": true,
+      "linhas": {
+        "cobertas": 62,
+        "total": 62,
+        "pct": 100
+      },
+      "branches": {
+        "cobertas": 20,
+        "total": 20,
+        "pct": 100
+      }
+    },
+    "src/app/reserva/sala.service.ts": {
+      "encontradoNoRelatorio": true,
+      "linhas": {
+        "cobertas": 6,
+        "total": 6,
+        "pct": 100
+      },
+      "branches": {
+        "cobertas": 0,
+        "total": 0,
+        "pct": 100
+      }
+    }
+  },
+  "total": {
+    "linhas": {
+      "cobertas": 79,
+      "total": 79,
+      "pct": 100
+    },
+    "branches": {
+      "cobertas": 28,
+      "total": 28,
+      "pct": 100
+    }
+  }
+}

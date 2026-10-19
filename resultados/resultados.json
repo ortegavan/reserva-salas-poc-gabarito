@@ -1,0 +1,79 @@
+{
+  "geradoEm": "2026-10-19T18:51:21.406Z",
+  "suites": [
+    {
+      "suite": "rodada/claude-codigo",
+      "commits": [
+        "ab2d08c3320b9feb7f99f6adfb75efc2ec981ea2"
+      ],
+      "testes": 96,
+      "testesFalhandoComBugs": 11,
+      "coberturaLinhas": 100,
+      "coberturaBranches": 100,
+      "mutationScore": 85.4,
+      "versaoMutacao": "corrigida",
+      "mutantesSobreviventes": 20,
+      "testesExcluidosDoStryker": [
+        "RegrasReservaService exigeAprovacaoGestor não exige aprovação para 10 participantes",
+        "RegrasReservaService horarioInicioPermitido recusa horário sem minutos",
+        "ReservaComponent validações recusa data anterior a hoje",
+        "ReservaComponent aprovação do gestor não avisa com 10 participantes"
+      ],
+      "suitesExcluidasDoStryker": [],
+      "mutationScoreComBugs": null,
+      "testesExcluidosDoStrykerComBugs": null,
+      "bugsDetectados": [
+        "bug-02",
+        "bug-03",
+        "bug-04",
+        "bug-05"
+      ],
+      "bugsProtegidos": [
+        "bug-01"
+      ],
+      "bugsIgnorados": [],
+      "heuristica": {
+        "shouldCreate": 0,
+        "dubles": 4,
+        "asserçõesDom": 3,
+        "asserçõesComponente": 60,
+        "timersFalsos": 18
+      }
+    },
+    {
+      "suite": "rodada/claude-especificacao",
+      "commits": [
+        "e22023640dcd9cfceb1b08a0e45f68a25c8445b8"
+      ],
+      "testes": 103,
+      "testesFalhandoComBugs": 16,
+      "coberturaLinhas": 100,
+      "coberturaBranches": 100,
+      "mutationScore": 83.94,
+      "versaoMutacao": "corrigida",
+      "mutantesSobreviventes": 22,
+      "testesExcluidosDoStryker": [
+        "ReservaComponent R6 — botão \"Reservar\" não dispara reserva duplicada ao enviar duas vezes seguidas"
+      ],
+      "suitesExcluidasDoStryker": [],
+      "mutationScoreComBugs": null,
+      "testesExcluidosDoStrykerComBugs": null,
+      "bugsDetectados": [
+        "bug-01",
+        "bug-02",
+        "bug-03",
+        "bug-04",
+        "bug-05"
+      ],
+      "bugsProtegidos": [],
+      "bugsIgnorados": [],
+      "heuristica": {
+        "shouldCreate": 0,
+        "dubles": 4,
+        "asserçõesDom": 9,
+        "asserçõesComponente": 43,
+        "timersFalsos": 16
+      }
+    }
+  ]
+}

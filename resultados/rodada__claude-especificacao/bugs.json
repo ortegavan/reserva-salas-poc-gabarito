@@ -1,0 +1,106 @@
+{
+  "branch": "rodada/claude-especificacao",
+  "commit": "e22023640dcd9cfceb1b08a0e45f68a25c8445b8",
+  "geradoEm": "2026-10-19T18:50:45.207Z",
+  "criterio": {
+    "detectado": "algum teste falha com o bug e passa com a correção",
+    "protegido": "algum teste passa com o bug e falha com a correção",
+    "ignorado": "nenhum teste muda de resultado"
+  },
+  "suiteComBugs": {
+    "testes": 103,
+    "passaram": 87,
+    "falharam": 16,
+    "suitesComErro": [],
+    "testesInstaveis": []
+  },
+  "resumo": {
+    "detectados": [
+      "bug-01",
+      "bug-02",
+      "bug-03",
+      "bug-04",
+      "bug-05"
+    ],
+    "protegidos": [],
+    "ignorados": [],
+    "comErro": []
+  },
+  "bugs": [
+    {
+      "bug": "bug-01",
+      "patch": "bug-01.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › exigeAprovacaoGestor (R4) › exige aprovação para exatamente 10 participantes",
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › R4 — aprovação do gestor › exige aprovação com exatamente 10 participantes",
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › R4 — aprovação do gestor › envia exigeAprovacaoGestor = true na reserva com 10 participantes"
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    },
+    {
+      "bug": "bug-02",
+      "patch": "bug-02.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › horarioInicioPermitido (R5) › não permite \"20:00\" (a partir das 20h00)",
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › horarioInicioPermitido (R5) › não permite \"20:30\" (a partir das 20h00)",
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › horarioInicioPermitido (R5) › não permite \"20:59\" (a partir das 20h00)",
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › R5 — horário de início › rejeita \"20:00\"",
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › R5 — horário de início › rejeita \"20:30\""
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    },
+    {
+      "bug": "bug-03",
+      "patch": "bug-03.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › codigoSalaValido (R2) › rejeita código com mais caracteres que o formato: quatro dígitos (\"AZ-1012\")",
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › codigoSalaValido (R2) › rejeita código com mais caracteres que o formato: sufixo de letras (\"AZ-101X\")",
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › codigoSalaValido (R2) › rejeita código com mais caracteres que o formato: espaço no final (\"AZ-101 \")",
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › R2 — código da sala › marca erro de formato para código com caracteres a mais"
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    },
+    {
+      "bug": "bug-04",
+      "patch": "bug-04.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › R6 — botão \"Reservar\" › fica desabilitado enquanto o envio está em andamento",
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › R6 — botão \"Reservar\" › fica desabilitado com formulário inválido mesmo durante um envio"
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    },
+    {
+      "bug": "bug-05",
+      "patch": "bug-05.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › R7 — troca do código da sala › some com os dados da sala anterior e mostra \"Consultando sala…\" imediatamente"
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    }
+  ]
+}

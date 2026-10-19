@@ -1,0 +1,103 @@
+{
+  "branch": "rodada/claude-codigo",
+  "commit": "ab2d08c3320b9feb7f99f6adfb75efc2ec981ea2",
+  "geradoEm": "2026-10-19T18:46:29.717Z",
+  "criterio": {
+    "detectado": "algum teste falha com o bug e passa com a correção",
+    "protegido": "algum teste passa com o bug e falha com a correção",
+    "ignorado": "nenhum teste muda de resultado"
+  },
+  "suiteComBugs": {
+    "testes": 96,
+    "passaram": 85,
+    "falharam": 11,
+    "suitesComErro": [],
+    "testesInstaveis": []
+  },
+  "resumo": {
+    "detectados": [
+      "bug-02",
+      "bug-03",
+      "bug-04",
+      "bug-05"
+    ],
+    "protegidos": [
+      "bug-01"
+    ],
+    "ignorados": [],
+    "comErro": []
+  },
+  "bugs": [
+    {
+      "bug": "bug-01",
+      "patch": "bug-01.patch",
+      "detectado": false,
+      "protegido": true,
+      "ignorado": false,
+      "testesQueDetectaram": [],
+      "testesQueProtegeram": [
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › exigeAprovacaoGestor › não exige aprovação para 10 participantes",
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › aprovação do gestor › não avisa com 10 participantes"
+      ],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    },
+    {
+      "bug": "bug-02",
+      "patch": "bug-02.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › horarioInicioPermitido › recusa 20:00",
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › horarioInicioPermitido › recusa 20:30",
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › horarioInicioPermitido › recusa 20:59",
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › validações › recusa horário depois de 19h59"
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    },
+    {
+      "bug": "bug-03",
+      "patch": "bug-03.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › codigoSalaValido › recusa código com quatro dígitos",
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › codigoSalaValido › recusa código com sufixo depois dos dígitos",
+        "src/app/reserva/regras-reserva.service.spec.ts › RegrasReservaService › codigoSalaValido › recusa código com espaço no fim"
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    },
+    {
+      "bug": "bug-04",
+      "patch": "bug-04.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › reservar › desabilita o botão enquanto envia"
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    },
+    {
+      "bug": "bug-05",
+      "patch": "bug-05.patch",
+      "detectado": true,
+      "protegido": false,
+      "ignorado": false,
+      "testesQueDetectaram": [
+        "src/app/reserva/reserva.component.spec.ts › ReservaComponent › consulta da sala › invalida o formulário assim que o código da sala muda"
+      ],
+      "testesQueProtegeram": [],
+      "testesAusentesAposCorrecao": [],
+      "suitesComErroAposCorrecao": []
+    }
+  ]
+}

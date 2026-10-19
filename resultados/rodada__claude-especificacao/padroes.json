@@ -1,0 +1,84 @@
+{
+  "branch": "rodada/claude-especificacao",
+  "commit": "e22023640dcd9cfceb1b08a0e45f68a25c8445b8",
+  "geradoEm": "2026-10-19T18:50:52.166Z",
+  "aviso": "HEURÍSTICA. Contagens por expressão regular sobre o texto dos specs, sem análise sintática; servem só de apoio à leitura humana.",
+  "specsIgnorados": [
+    "src/app/app.spec.ts"
+  ],
+  "padroes": {
+    "testes": "\\b(?:it|test)(?:\\.each\\([^)]*\\))?\\s*\\(",
+    "shouldCreate": "\\b(?:it|test)\\s*\\(\\s*['\"`](?:should (?:be )?create|deve (?:ser )?cria|deve criar|cria o componente)",
+    "jestFn": "\\bjest\\.fn\\s*\\(",
+    "jestSpyOn": "\\bjest\\.spyOn\\s*\\(",
+    "useValue": "\\buseValue\\s*:",
+    "httpTestingController": "\\bHttpTestingController\\b",
+    "domNativeElement": "\\bnativeElement\\b",
+    "domQuerySelector": "\\bquerySelector(?:All)?\\s*\\(",
+    "domDebugElement": "\\bdebugElement\\b",
+    "expectSobreComponente": "\\bexpect\\s*\\(\\s*(?:component|comp|componente|fixture\\.componentInstance)\\s*[.[]",
+    "expectSobreDom": "\\bexpect\\s*\\([^;\\n]*(?:nativeElement|querySelector|debugElement|textContent|\\.disabled\\b)",
+    "timersFalsos": "\\b(?:jest\\.useFakeTimers|jest\\.advanceTimersByTime|jest\\.runAllTimers|jest\\.runOnlyPendingTimers|fakeAsync|tick\\s*\\(|flush\\s*\\()"
+  },
+  "total": {
+    "testes": 63,
+    "shouldCreate": 0,
+    "jestFn": 2,
+    "jestSpyOn": 0,
+    "useValue": 2,
+    "httpTestingController": 3,
+    "domNativeElement": 1,
+    "domQuerySelector": 4,
+    "domDebugElement": 0,
+    "expectSobreComponente": 43,
+    "expectSobreDom": 9,
+    "timersFalsos": 16,
+    "dubles": 4,
+    "asserçõesDom": 9,
+    "asserçõesComponente": 43
+  },
+  "porArquivo": {
+    "src/app/reserva/regras-reserva.service.spec.ts": {
+      "testes": 15,
+      "shouldCreate": 0,
+      "jestFn": 0,
+      "jestSpyOn": 0,
+      "useValue": 0,
+      "httpTestingController": 0,
+      "domNativeElement": 0,
+      "domQuerySelector": 0,
+      "domDebugElement": 0,
+      "expectSobreComponente": 0,
+      "expectSobreDom": 0,
+      "timersFalsos": 0
+    },
+    "src/app/reserva/reserva.component.spec.ts": {
+      "testes": 42,
+      "shouldCreate": 0,
+      "jestFn": 2,
+      "jestSpyOn": 0,
+      "useValue": 2,
+      "httpTestingController": 0,
+      "domNativeElement": 1,
+      "domQuerySelector": 4,
+      "domDebugElement": 0,
+      "expectSobreComponente": 43,
+      "expectSobreDom": 9,
+      "timersFalsos": 10
+    },
+    "src/app/reserva/sala.service.spec.ts": {
+      "testes": 6,
+      "shouldCreate": 0,
+      "jestFn": 0,
+      "jestSpyOn": 0,
+      "useValue": 0,
+      "httpTestingController": 3,
+      "domNativeElement": 0,
+      "domQuerySelector": 0,
+      "domDebugElement": 0,
+      "expectSobreComponente": 0,
+      "expectSobreDom": 0,
+      "timersFalsos": 6
+    }
+  }
+}

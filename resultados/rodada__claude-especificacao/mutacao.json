@@ -1,0 +1,323 @@
+{
+  "branch": "rodada/claude-especificacao",
+  "commit": "e22023640dcd9cfceb1b08a0e45f68a25c8445b8",
+  "geradoEm": "2026-10-19T18:50:13.674Z",
+  "versaoDoCodigo": "corrigida",
+  "patchesAplicados": [
+    "bug-01.patch",
+    "bug-02.patch",
+    "bug-03.patch",
+    "bug-04.patch",
+    "bug-05.patch"
+  ],
+  "codigoSaidaStryker": 0,
+  "mutationScore": 83.94,
+  "mutationScoreSobreCodigoCoberto": 83.94,
+  "totais": {
+    "mutantes": 137,
+    "validos": 137,
+    "killed": 110,
+    "timeout": 5,
+    "survived": 22,
+    "noCoverage": 0,
+    "compileErrors": 0,
+    "runtimeErrors": 0,
+    "ignored": 0
+  },
+  "testesNaExecucaoInicial": 103,
+  "totalTestesExcluidos": 1,
+  "testesExcluidosDaMedicao": [
+    "ReservaComponent R6 — botão \"Reservar\" não dispara reserva duplicada ao enviar duas vezes seguidas"
+  ],
+  "suitesExcluidasDaMedicao": [],
+  "porArquivo": {
+    "src/app/reserva/regras-reserva.service.ts": {
+      "mutantes": 40,
+      "porStatus": {
+        "Killed": 38,
+        "Timeout": 2
+      }
+    },
+    "src/app/reserva/reserva.component.ts": {
+      "mutantes": 93,
+      "porStatus": {
+        "Survived": 22,
+        "Killed": 69,
+        "Timeout": 2
+      }
+    },
+    "src/app/reserva/sala.service.ts": {
+      "mutantes": 4,
+      "porStatus": {
+        "Killed": 3,
+        "Timeout": 1
+      }
+    },
+    "src/app/reserva/reserva.component.html": {
+      "mutantes": 0,
+      "porStatus": {}
+    }
+  },
+  "sobreviventes": [
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "42",
+      "status": "Survived",
+      "mutador": "StringLiteral",
+      "substituicao": "\"\"",
+      "linha": 19,
+      "coluna": 55,
+      "original": "const mes = String(data.getMonth() + 1).padStart(2, '0');"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "43",
+      "status": "Survived",
+      "mutador": "StringLiteral",
+      "substituicao": "\"\"",
+      "linha": 20,
+      "coluna": 50,
+      "original": "const dia = String(data.getDate()).padStart(2, '0');"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "46",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "true",
+      "linha": 39,
+      "coluna": 37,
+      "original": "readonly consultandoSala = signal(false);"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "49",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "true",
+      "linha": 42,
+      "coluna": 39,
+      "original": "readonly reservaConfirmada = signal(false);"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "47",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "true",
+      "linha": 40,
+      "coluna": 39,
+      "original": "readonly salaNaoEncontrada = signal(false);"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "50",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "true",
+      "linha": 43,
+      "coluna": 31,
+      "original": "readonly erroEnvio = signal(false);"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "54",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "false",
+      "linha": 48,
+      "coluna": 22,
+      "original": "nonNullable: true,"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "58",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "false",
+      "linha": 51,
+      "coluna": 55,
+      "original": "data: new FormControl(this.hoje, { nonNullable: true, validators: [Validators.required] }),"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "57",
+      "status": "Survived",
+      "mutador": "ObjectLiteral",
+      "substituicao": "{}",
+      "linha": 51,
+      "coluna": 40,
+      "original": "data: new FormControl(this.hoje, { nonNullable: true, validators: [Validators.required] }),"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "59",
+      "status": "Survived",
+      "mutador": "ArrayDeclaration",
+      "substituicao": "[]",
+      "linha": 51,
+      "coluna": 73,
+      "original": "data: new FormControl(this.hoje, { nonNullable: true, validators: [Validators.required] }),"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "62",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "false",
+      "linha": 53,
+      "coluna": 22,
+      "original": "nonNullable: true,"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "65",
+      "status": "Survived",
+      "mutador": "ObjectLiteral",
+      "substituicao": "{}",
+      "linha": 56,
+      "coluna": 43,
+      "original": "duracaoMinutos: new FormControl(60, { nonNullable: true, validators: [Validators.required] }),"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "66",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "false",
+      "linha": 56,
+      "coluna": 58,
+      "original": "duracaoMinutos: new FormControl(60, { nonNullable: true, validators: [Validators.required] }),"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "67",
+      "status": "Survived",
+      "mutador": "ArrayDeclaration",
+      "substituicao": "[]",
+      "linha": 56,
+      "coluna": 76,
+      "original": "duracaoMinutos: new FormControl(60, { nonNullable: true, validators: [Validators.required] }),"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "69",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "false",
+      "linha": 58,
+      "coluna": 22,
+      "original": "nonNullable: true,"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "74",
+      "status": "Survived",
+      "mutador": "ObjectLiteral",
+      "substituicao": "{}",
+      "linha": 65,
+      "coluna": 92,
+      "original": "private readonly participantes = toSignal(this.form.controls.participantes.valueChanges, {\n    initialValue: this.form.controls.participantes.value,\n  });"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "81",
+      "status": "Survived",
+      "mutador": "BooleanLiteral",
+      "substituicao": "true",
+      "linha": 78,
+      "coluna": 38,
+      "original": "this.salaNaoEncontrada.set(false);"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "92",
+      "status": "Survived",
+      "mutador": "ConditionalExpression",
+      "substituicao": "true",
+      "linha": 91,
+      "coluna": 36,
+      "original": "this.salaNaoEncontrada.set(sala === null && this.form.controls.codigoSala.valid);"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "119",
+      "status": "Survived",
+      "mutador": "ConditionalExpression",
+      "substituicao": "false",
+      "linha": 120,
+      "coluna": 9,
+      "original": "if (!controle.value) {"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "120",
+      "status": "Survived",
+      "mutador": "BlockStatement",
+      "substituicao": "{}",
+      "linha": 120,
+      "coluna": 26,
+      "original": "if (!controle.value) {\n      return null;\n    }"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "127",
+      "status": "Survived",
+      "mutador": "BlockStatement",
+      "substituicao": "{}",
+      "linha": 127,
+      "coluna": 26,
+      "original": "if (!controle.value) {\n      return null;\n    }"
+    },
+    {
+      "arquivo": "src/app/reserva/reserva.component.ts",
+      "id": "126",
+      "status": "Survived",
+      "mutador": "ConditionalExpression",
+      "substituicao": "false",
+      "linha": 127,
+      "coluna": 9,
+      "original": "if (!controle.value) {"
+    }
+  ],
+  "configStryker": {
+    "packageManager": "pnpm",
+    "plugins": [
+      "/Users/ortegavan/Documents/git/poc-montagem/reserva-salas-poc-gabarito/node_modules/.pnpm/@stryker-mutator+jest-runner@10.0.0_@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/jest-runner/dist/src/index.js"
+    ],
+    "testRunner": "jest",
+    "jest": {
+      "projectType": "custom",
+      "configFile": "jest.config.cjs",
+      "enableFindRelatedTests": true,
+      "config": {
+        "testNamePattern": "^(?!(?:ReservaComponent R6 — botão \"Reservar\" não dispara reserva duplicada ao enviar duas vezes seguidas)$)",
+        "setupFilesAfterEnv": [
+          "<rootDir>/setup-jest.ts",
+          "/Users/ortegavan/Documents/git/poc-montagem/reserva-salas-poc-gabarito/scripts/lib/excluir-testes.cjs"
+        ]
+      }
+    },
+    "coverageAnalysis": "perTest",
+    "mutate": [
+      "src/app/reserva/regras-reserva.service.ts",
+      "src/app/reserva/reserva.component.ts",
+      "src/app/reserva/sala.service.ts",
+      "src/app/reserva/reserva.component.html"
+    ],
+    "reporters": [
+      "clear-text",
+      "progress",
+      "html",
+      "json"
+    ],
+    "htmlReporter": {
+      "fileName": "reports/mutation/mutation.html"
+    },
+    "jsonReporter": {
+      "fileName": "reports/mutation/mutation.json"
+    },
+    "tempDirName": ".stryker-tmp",
+    "cleanTempDir": true
+  }
+}
