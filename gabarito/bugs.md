@@ -1,6 +1,6 @@
 # Gabarito dos bugs plantados
 
-Referência: o código de produção de `reserva-salas-poc` está no commit `59815bf` ("Adiciona formulário de reserva de salas"), que é a ponta da `main`. A `base-com-especificacao` (`c0c69ce`) só acrescenta `docs/especificacao-reserva.md`, e as branches de rodada só podem acrescentar arquivos `.spec.ts`. Os números de linha valem para todas essas branches. A branch `experimento` (`a11dd63`) tem os prompts e o protocolo e nunca é usada como base de geração.
+Referência: o código de produção de `reserva-salas-poc` está no commit `5c74167` ("Aplicação de reserva de salas de reunião"), único commit da `main`. A `base-com-especificacao` (`b19b005`) só acrescenta `docs/especificacao-reserva.md`, e as branches de rodada só podem acrescentar arquivos `.spec.ts`. Os números de linha valem para todas essas branches. A branch `experimento` (`7488f5c`) tem os prompts e o protocolo e nunca é usada como base de geração. O conteúdo de `src/` é o mesmo desde a montagem; o histórico foi reescrito duas vezes, só para neutralizar README e mensagens de commit.
 
 Cada bug tem um patch independente em `fixes/bug-0N.patch`, que corrige **somente** aquele bug e aplica limpo sobre a `main` e a `base-com-especificacao` (`pnpm verificar:patches --app <repo> --branch <branch>`). Os cinco também aplicam juntos, em ordem, que é como `medir:mutacao` monta a versão corrigida.
 

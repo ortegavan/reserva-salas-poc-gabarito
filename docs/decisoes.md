@@ -127,7 +127,7 @@ Contagens por expressão regular sobre o texto dos `.spec.ts` da branch, excluin
 
 Feita num clone descartável da aplicação, no diretório temporário da sessão, com branches que **nunca foram commitadas nem enviadas** ao repositório da aplicação. Os resultados foram apagados de `resultados/` depois.
 
-Rodada atual, sobre a `main` reescrita (`59815bf`):
+Rodada atual, sobre a `main` com o mesmo `src/` da `main` atual (`5c74167`; a sanidade rodou sobre `59815bf`, que tem árvore idêntica):
 
 1. `sanidade-trivial`: um único teste, `cabeNaSala(4, 4) === true`. Versão corrigida: os 5 patches foram aplicados (a fonte no relatório tem `\d{3}$`, `>= 10` e `hora < 20`) e foram instrumentados 137 mutantes em 4 arquivos, nenhum no `.html`. O mutante esperado, `EqualityOperator` em `regras-reserva.service.ts:16` (`participantes <= capacidade` → `participantes < capacidade`), foi **morto** pelo único teste. Nenhum teste excluído.
 2. `sanidade-bugs`: um teste por bug escrito para detectá-lo, um teste que afirma o comportamento com bug de B1 (`B1 protege`), o par `B2 limite` / `B2 limite noturno` e testes neutros.
