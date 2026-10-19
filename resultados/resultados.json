@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-19T18:51:21.406Z",
+  "geradoEm": "2026-10-19T19:22:43.749Z",
   "suites": [
     {
       "suite": "rodada/claude-codigo",
@@ -20,8 +20,20 @@
         "ReservaComponent aprovação do gestor não avisa com 10 participantes"
       ],
       "suitesExcluidasDoStryker": [],
-      "mutationScoreComBugs": null,
-      "testesExcluidosDoStrykerComBugs": null,
+      "mutationScoreComBugs": 85.19,
+      "testesExcluidosDoStrykerComBugs": [
+        "RegrasReservaService codigoSalaValido recusa código com quatro dígitos",
+        "RegrasReservaService codigoSalaValido recusa código com sufixo depois dos dígitos",
+        "RegrasReservaService codigoSalaValido recusa código com espaço no fim",
+        "RegrasReservaService horarioInicioPermitido recusa 20:00",
+        "RegrasReservaService horarioInicioPermitido recusa 20:30",
+        "RegrasReservaService horarioInicioPermitido recusa 20:59",
+        "RegrasReservaService horarioInicioPermitido recusa horário sem minutos",
+        "ReservaComponent consulta da sala invalida o formulário assim que o código da sala muda",
+        "ReservaComponent validações recusa horário depois de 19h59",
+        "ReservaComponent validações recusa data anterior a hoje",
+        "ReservaComponent reservar desabilita o botão enquanto envia"
+      ],
       "bugsDetectados": [
         "bug-02",
         "bug-03",
