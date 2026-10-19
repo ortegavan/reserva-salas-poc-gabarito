@@ -1,0 +1,21 @@
+{
+  "name": "reserva-salas-poc-gabarito",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.11.2",
+  "scripts": {
+    "medir:cobertura": "node scripts/medir-cobertura.mjs",
+    "medir:mutacao": "node scripts/medir-mutacao.mjs",
+    "medir:bugs": "node scripts/medir-bugs.mjs",
+    "medir:padroes": "node scripts/medir-padroes.mjs",
+    "relatorio": "node scripts/relatorio.mjs",
+    "verificar:patches": "node scripts/verificar-patches.mjs"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "10.0.0",
+    "@stryker-mutator/jest-runner": "10.0.0",
+    "mutation-testing-metrics": "3.8.4",
+    "typescript": "6.0.3"
+  }
+}
