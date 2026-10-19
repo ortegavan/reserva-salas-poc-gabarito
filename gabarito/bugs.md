@@ -1,8 +1,8 @@
 # Gabarito dos bugs plantados
 
-Referência: o código de produção de `reserva-salas-poc` foi introduzido no commit `2c95468` ("Adiciona formulário de reserva de salas") e não muda depois dele: `main` (`f6db726`) e `base-com-especificacao` (`2306e6c`) só acrescentam documentação, e as branches de rodada só podem acrescentar arquivos `.spec.ts`. Os números de linha valem para todas essas branches.
+Referência: o código de produção de `reserva-salas-poc` está no commit `59815bf` ("Adiciona formulário de reserva de salas"), que é a ponta da `main`. A `base-com-especificacao` (`c0c69ce`) só acrescenta `docs/especificacao-reserva.md`, e as branches de rodada só podem acrescentar arquivos `.spec.ts`. Os números de linha valem para todas essas branches. A branch `experimento` (`a11dd63`) tem os prompts e o protocolo e nunca é usada como base de geração.
 
-Cada bug tem um patch independente em `fixes/bug-0N.patch`, que corrige **somente** aquele bug e aplica limpo sobre a `main` (`pnpm verificar:patches --app <repo> --branch main`).
+Cada bug tem um patch independente em `fixes/bug-0N.patch`, que corrige **somente** aquele bug e aplica limpo sobre a `main` e a `base-com-especificacao` (`pnpm verificar:patches --app <repo> --branch <branch>`). Os cinco também aplicam juntos, em ordem, que é como `medir:mutacao` monta a versão corrigida.
 
 | Bug | Regra | Arquivo:linha | Código com bug | Correção | Natureza |
 |---|---|---|---|---|---|
@@ -32,7 +32,7 @@ Com `form.invalid && !enviando()`:
 - formulário inválido e envio em andamento → botão habilitado (caso raro, mas também errado);
 - formulário inválido sem envio → desabilitado (o caso comum funciona, o que esconde o bug).
 
-O erro está só no template; nenhuma propriedade do componente o revela. **O Stryker não gera mutantes para bindings de templates Angular**, então esse bug fica fora do alcance do mutation score.
+O erro está só no template; nenhuma propriedade do componente o revela. **O Stryker não gera mutantes para bindings de templates Angular**, então esse bug fica fora do alcance do mutation score, tanto na versão corrigida quanto na versão com bugs.
 
 ## B5 — dados da sala anterior permanecem durante a nova consulta (R7)
 

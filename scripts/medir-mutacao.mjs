@@ -1,4 +1,4 @@
-import { cpSync, existsSync, readFileSync } from 'node:fs';
+import { cpSync, existsSync, readdirSync, readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -7,6 +7,7 @@ import {
   ARQUIVOS_ALVO,
   ARQUIVOS_ALVO_TEMPLATE,
   CONFIG_JEST,
+  DIR_FIXES,
   dirResultadosDaBranch,
   executar,
   lerArgumentos,
@@ -22,15 +23,37 @@ const STRYKER_BIN = path.join(path.dirname(require.resolve('@stryker-mutator/cor
 // com o layout do pnpm o jest-runner não está lá, então o plugin é passado pelo caminho absoluto.
 const JEST_RUNNER = fileURLToPath(import.meta.resolve('@stryker-mutator/jest-runner'));
 
-const args = lerArgumentos();
+// Medição principal: código corrigido (todos os patches de gabarito/fixes aplicados).
+// Medição secundária: `--versao com-bugs`, sobre o código da branch como está.
+const VERSOES = {
+  corrigida: { arquivo: 'mutacao.json', dirStryker: 'stryker' },
+  'com-bugs': { arquivo: 'mutacao-com-bugs.json', dirStryker: 'stryker-com-bugs' },
+};
+
+const args = lerArgumentos({ extras: { versao: { type: 'string', default: 'corrigida' } } });
+if (!VERSOES[args.versao]) {
+  console.error(`--versao deve ser ${Object.keys(VERSOES).join(' ou ')}`);
+  process.exit(2);
+}
 const { clone, commit, limpar } = prepararClone(args.app, args.branch, { manterTemp: args['manter-temp'] });
 
 const escaparRegex = (texto) => texto.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 try {
-  // O Stryker aborta se algum teste falhar no dry run. Testes que falham sobre o código da
-  // branch (e arquivos de teste que nem carregam) são identificados aqui e excluídos da medição
-  // de mutação; ver scripts/lib/excluir-testes.cjs e docs/decisoes.md.
+  const patchesAplicados = [];
+  if (args.versao === 'corrigida') {
+    const patches = readdirSync(DIR_FIXES)
+      .filter((f) => /^bug-\d+\.patch$/.test(f))
+      .sort();
+    for (const patch of patches) {
+      executar('git', ['apply', path.join(DIR_FIXES, patch)], { cwd: clone });
+      patchesAplicados.push(patch);
+    }
+  }
+
+  // O Stryker aborta se algum teste falhar no dry run. Testes que falham sobre o código medido
+  // (e arquivos de teste que nem carregam) são identificados aqui e excluídos da medição de
+  // mutação; ver scripts/lib/excluir-testes.cjs e docs/decisoes.md.
   const { json: execucaoInicial } = rodarJest(clone);
   const testesExcluidos = [];
   const suitesExcluidas = [];
@@ -124,12 +147,15 @@ try {
   }
 
   const dirSaida = dirResultadosDaBranch(args.branch);
-  cpSync(path.join(clone, 'reports/mutation'), path.join(dirSaida, 'stryker'), { recursive: true });
+  const { arquivo: arquivoSaida, dirStryker } = VERSOES[args.versao];
+  cpSync(path.join(clone, 'reports/mutation'), path.join(dirSaida, dirStryker), { recursive: true });
 
   const resultado = {
     branch: args.branch,
     commit,
     geradoEm: new Date().toISOString(),
+    versaoDoCodigo: args.versao,
+    patchesAplicados,
     codigoSaidaStryker: execucao.status,
     mutationScore: Math.round(metrics.mutationScore * 100) / 100,
     mutationScoreSobreCodigoCoberto: Math.round(metrics.mutationScoreBasedOnCoveredCode * 100) / 100,
@@ -144,15 +170,22 @@ try {
       runtimeErrors: metrics.runtimeErrors,
       ignored: metrics.ignored,
     },
+    testesNaExecucaoInicial: execucaoInicial.numTotalTests,
+    totalTestesExcluidos: testesExcluidos.length,
     testesExcluidosDaMedicao: testesExcluidos,
     suitesExcluidasDaMedicao: suitesExcluidas,
     porArquivo,
     sobreviventes,
     configStryker,
   };
-  salvarJson(path.join(dirSaida, 'mutacao.json'), resultado);
-  console.log(`\nMutation score (${args.branch}): ${resultado.mutationScore}%`);
-  console.log(`Testes excluídos da medição por falharem na branch: ${testesExcluidos.length}; suítes excluídas: ${suitesExcluidas.length}.`);
+  salvarJson(path.join(dirSaida, arquivoSaida), resultado);
+  console.log(`\nMutation score (${args.branch}, código ${args.versao}): ${resultado.mutationScore}%`);
+  console.log(
+    `Testes excluídos por falharem no código ${args.versao}: ${testesExcluidos.length}; suítes excluídas: ${suitesExcluidas.length}.`,
+  );
+  for (const nome of testesExcluidos) {
+    console.log(`  - ${nome}`);
+  }
   console.log(`Sobreviventes/sem cobertura: ${sobreviventes.length}. Resultado em ${dirSaida}`);
   if (execucao.status !== 0) {
     console.error(`Atenção: o Stryker terminou com código ${execucao.status}.`);
